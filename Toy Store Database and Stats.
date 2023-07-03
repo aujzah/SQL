@@ -1,0 +1,14 @@
+--Create a toy store database
+
+CREATE TABLE toys (id integer primary key, name text, quantity integer, price_usd integer, gender text);
+INSERT INTO toys VALUES (1, "barbie", 5, 15, "girls");
+INSERT INTO toys VALUES (2, "captain america shield", 3, 20, "boys");
+INSERT INTO toys VALUES (3, "soccer goal", 4, 30, "unisex");
+INSERT INTO toys VALUES (4, "teething rattle", 7, 10, "unisex");
+INSERT INTO toys VALUES (5, "slime", 15, 5, "unisex");
+
+--display the database ordered by price.
+SELECT * FROM toys ORDER BY price_usd;
+
+--what is the sum of the toys if all items were sold?
+SELECT SUM(price_usd) FROM toys;
