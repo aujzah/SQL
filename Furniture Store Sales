@@ -1,0 +1,40 @@
+--Determine which products have an average price greater than $1000?
+
+SELECT product, avg(price) as avg_price
+
+FROM sales 
+
+GROUP BY product
+
+HAVING avg_price>1000;
+
+--What are the names of the customers who spent less than $5000 and greater than $1200?
+
+SELECT name, sum(price) as total_price from sales 
+
+GROUP BY name
+
+HAVING total_price<5000 AND total_price>1200;
+
+--Determine the amount of sales each country made.
+
+SELECT country, COUNT(*) FROM sales GROUP BY country;
+
+--Which three countries made the most sales? Output the data and group by most_sales.
+
+SELECT COUNT (*),
+
+  CASE 
+
+  WHEN country = "United states" THEN "1"
+
+  WHEN country = "Canada" THEN "2"
+
+  WHEN country = "United Kingdom" THEN "3"
+
+  ELSE "4"
+
+  END as "most_sales" FROM sales
+
+  GROUP BY "most_sales";
+
